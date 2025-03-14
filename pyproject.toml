@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "aws_ses"
+version = "0.1.0"
+description = "AWS SES email sender with multiple profile support"
+authors = ["Devin AI <devin-ai-integration[bot]@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+boto3 = "^1.34.0"
+click = "^8.1.7"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-mock = "^3.12.0"
+moto = "^4.2.7"
+black = "^23.12.0"
+isort = "^5.13.0"
+flake8 = "^6.1.0"
+mypy = "^1.7.0"
+
+[tool.poetry.scripts]
+aws-ses = "aws_ses.cli:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
